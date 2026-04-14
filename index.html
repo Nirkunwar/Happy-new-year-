@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ नयाँ वर्ष 2083 Surprise ✨</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{
+      background: linear-gradient(135deg,#1d2b64,#f8cdda);
+      color:#fff;
+      text-align:center;
+      overflow:hidden;
+    }
+    section{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      transition:1s;
+    }
+    h1{font-size:3rem;margin-bottom:20px;}
+    p{font-size:1.3rem;max-width:700px;line-height:1.8;margin-bottom:20px;}
+    button{
+      padding:12px 25px;
+      border:none;
+      border-radius:30px;
+      background:#fff;
+      color:#ff4b5c;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    button:hover{background:#ff4b5c;color:#fff;}
+    .hidden{display:none;}/* floating hearts */
+.heart{
+  position:absolute;
+  color:red;
+  animation: float 6s linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0.5);opacity:1;}
+  100%{transform:translateY(-10vh) scale(1.5);opacity:0;}
+}
+
+  </style>
+</head>
+<body><!-- Page 1 --><section id="page1">
+  <h1>🎉 नयाँ वर्ष 2083 🎉</h1>
+  <p>
+    जीवनको नयाँ अध्याय सुरु भएको छ... ✨<br><br>
+    पुराना दुख, असफलता र निराशालाई बिदाइ गरौं र
+    नयाँ सपना, नयाँ आशा र नयाँ लक्ष्यलाई स्वागत गरौं। 💫<br><br>
+    यो वर्ष तपाईंको जीवनमा अनगिन्ती खुशी,
+    सफलता र मुस्कान लिएर आओस्। 🌸
+  </p>
+  <button onclick="nextPage(2)">Tap for Surprise ➡️</button>
+</section><!-- Page 2 --><section id="page2" class="hidden">
+  <h1>💖 Special Wish 💖</h1>
+  <p>
+    तपाईं मेरो लागि केवल एउटा व्यक्ति होइन,
+    एउटा सुन्दर अनुभूति हुनुहुन्छ... ❤️<br><br>तपाईंको हाँसोले दिन उज्यालो बनाउँछ,
+तपाईंको उपस्थितिले मनलाई शान्त बनाउँछ। 🌷<br><br>
+
+नयाँ वर्ष 2083 तपाईंको लागि:
+<br>✨ खुशी
+<br>✨ सफलता
+<br>✨ माया
+<br>✨ र अनगिन्ती सुन्दर पलहरू लिएर आओस् 💫
+
+  </p>
+  <button onclick="nextPage(3)">One More Surprise 🎁</button>
+</section><!-- Page 3 --><section id="page3" class="hidden">
+  <h1>🌟 Final Surprise 🌟</h1>
+  <p id="typeText"></p>
+  <button onclick="startMagic()">Click for Magic 🎆</button>
+</section><script>
+  function nextPage(page){
+    document.querySelectorAll('section').forEach(sec=>sec.classList.add('hidden'));
+    document.getElementById('page'+page).classList.remove('hidden');
+    if(page===3) typeWriter();
+  }
+
+  // Typewriter effect
+  const message = "तपाईं मेरो जीवनको एकदमै विशेष व्यक्ति हुनुहुन्छ... 💖\n\nनयाँ वर्षको हरेक दिन तपाईंको लागि खुशी र सफलता लिएर आओस्। ✨\n\nम सधैं तपाईंको खुशी चाहन्छु 😊\n\nHappy New Year 2083 🎊";
+  let i=0;
+  function typeWriter(){
+    if(i < message.length){
+      document.getElementById("typeText").innerHTML += message.charAt(i);
+      i++;
+      setTimeout(typeWriter,40);
+    }
+  }
+
+  // Magic hearts effect
+  function startMagic(){
+    for(let i=0;i<30;i++){
+      let heart=document.createElement("div");
+      heart.innerHTML="❤️";
+      heart.classList.add("heart");
+      heart.style.left=Math.random()*100+"vw";
+      heart.style.fontSize=(Math.random()*20+20)+"px";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }
+    alert("🎆 Surprise Complete 🎆\nनयाँ वर्ष 2083 को धेरै धेरै शुभकामना ❤️");
+  }
+</script></body>
+</html>
